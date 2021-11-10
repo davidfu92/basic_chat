@@ -6,6 +6,10 @@ test:
 	pytest app/test/
 integration:
 
+image:
+
+docker:
+
 dev:
 
 qa:
