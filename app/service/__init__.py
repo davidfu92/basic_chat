@@ -1,6 +1,6 @@
 from app.db import Repository
-from app.db..mongo import MongoRepository
-from app.db.schema import Schema
+from app.db.mongo_client import MongoRepository
+from app.db.schema import Message
 from twilio.jwt.access_token import AccessToken
 from twilio.jwt.access_token.grants import ChatGrant
 from twilio.rest import Client
@@ -63,10 +63,10 @@ class Service(object):
     message = self.client.messages.create(body=msg, from_=source, to=dest)
     return message.sid
 
- def receive_msg(self):
-   messages = self.client.messages.list(limit=5)
-   for msg in messages:
-       data = Message(id=msg.sid, msg=msg.body, time_received=msg.date_updated)
-       data = self.prepare_msg(data)
-       self.create_msg(data)
+  def receive_msg(self):
+    messages = self.client.messages.list(limit=5)
+    for msg in messages:
+      data = Message(id=msg.sid, msg=msg.body, time_received=msg.date_updated)
+      data = self.prepare_msg(data)
+      self.create_msg(data)
 
