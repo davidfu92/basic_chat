@@ -14,7 +14,7 @@ Then, clone the project, change into the directory and install the dependencies.
 ### Pre-Req
 - Have Python 3.6.3+
 - Have Docker Installed
-- 
+- Pyenv setup
 
 ```bash
 git clone git@github.com:davidfu92/basic_chat.git
@@ -55,4 +55,4 @@ To containerize all three pieces of the application
 make docker
 ```
 
-Open the app at [localhost:3000](http://localhost:8080). You can now use the form to send SMS messages via your Twilio number.
+Open the app at [localhost:8080](http://localhost:8080). You can now use the form to send SMS messages via your Twilio number.
